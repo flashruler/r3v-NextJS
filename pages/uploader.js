@@ -5,20 +5,19 @@ import Link from "next/link";
 import Login from "../components/login";
 
 export default function Uploader({ hasReadPermission }) {
-  if (!hasReadPermission) {
-    const router = useRouter();
-
-    if (!hasReadPermission) {
-      return <Login redirectPath={router.asPath} />;
-    }
-  }
+  const router = useRouter();
   let [fileUrl, setFileUrl] = useState();
   let { FileInput, openFileDialog, uploadToS3 } = useS3Upload();
-
   let handleFileChange = async (file) => {
     let { url } = await uploadToS3(file);
     setFileUrl(url);
   };
+  
+  if (!hasReadPermission) {
+    if (!hasReadPermission) {
+      return <Login redirectPath={router.asPath} />;
+    }
+  }
 
   return (
     <div>
