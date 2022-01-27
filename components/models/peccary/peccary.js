@@ -10,7 +10,7 @@ export default function Peccary(props) {
     return (
 
         <group ref={group} {...props} dispose={null}>
-            <Html position={[0,0,0]}
+            {/* <Html position={[0,0,0]}
                 as="div"
                 center
                 transform
@@ -25,7 +25,7 @@ export default function Peccary(props) {
                     // }
                 >
                     Peccary Lower
-          </button></Html>
+          </button></Html> */}
             <mesh
                 castShadow
                 receiveShadow
