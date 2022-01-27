@@ -10,7 +10,7 @@ export default function Info(props) {
         <h1 className="text-3xl opacity-100 z-10">Animal Name</h1>
         <h1 className="text-xl opacity-100 z-10">Scientific Name</h1>
         <div className="overflow-auto">
-          <p classname="text-lg opacity-100 z-10">
+          <p className="text-lg opacity-100 z-10">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
