@@ -13,7 +13,7 @@ export default function Uploader({ hasReadPermission }) {
     let { url } = await uploadToS3(file);
     setFileUrl(url);
   };
-  ç
+
   if (!hasReadPermission) {
     if (!hasReadPermission) {
       return <Login redirectPath={router.asPath} />;
