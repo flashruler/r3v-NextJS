@@ -1,15 +1,36 @@
 {
     "description":"test",
-    "models":[
-        {
-            "modelNumber":"1",
-            "modelName":"Peccary",
-            "modelDir":"https://hn3dmodels.s3.us-west-1.amazonaws.com/glbs/peccary.glb"
+    "models":[{
+        "modelName":"Peccary",
+        "sciName":"Tayassuidae",
+        "modelID":"hn3dpecc",
+        "modelDisc":"null",
+        "sectAmt":2,
+        "sect1":{
+            "sectName":"https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DPECC_1.GLTF",
+            "sectID":"hn3dpecc_1",
+            "sectPos":{
+                "x": 0,
+                "y":0,
+                "z": 0
+            }
         },
-        {
-            "modelNumber":"2",
-            "modelName":"Peccary Lower",
-            "modelDir": "https://hn3dmodels.s3.us-west-1.amazonaws.com/glbs/peccary_lower.glb" 
+        "sect2":{
+            "sectName":"https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DPECC_2.GLTF",
+            "sectID":"hn3dpecc_2",
+            "sectPos":{
+                "x": 0,
+                "y":0,
+                "z": 0
+            }
         }
-    ]
+    },
+    {
+        "modelName":"peccary",
+        "modelID":"hn3dpecc",
+        "modelDisc":"null",
+        "sect1":"null",
+        "sect2":"null"
+    }
+]
 }

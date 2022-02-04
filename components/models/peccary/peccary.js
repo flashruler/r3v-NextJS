@@ -5,6 +5,7 @@ import { Environment, PerspectiveCamera, OrbitControls, Html, useProgress, Cente
 export default function Peccary(props) {
     const group = useRef()
     const model = 'https://hn3dmodels.s3.us-west-1.amazonaws.com/glbs/modelDraco.gltf'
+    const model2 = 'https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HALFDRACO.GLTF'
     const { nodes, materials } = useGLTF(model)
     // console.log(model)
     return (

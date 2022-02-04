@@ -3,6 +3,7 @@ import { useS3Upload } from "next-s3-upload";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Login from "../components/login";
+// import {gltfToGlb} from "gltf-pipeline";
 
 export default function Uploader({ hasReadPermission }) {
   const router = useRouter();
@@ -12,7 +13,7 @@ export default function Uploader({ hasReadPermission }) {
     let { url } = await uploadToS3(file);
     setFileUrl(url);
   };
-  
+  ç
   if (!hasReadPermission) {
     if (!hasReadPermission) {
       return <Login redirectPath={router.asPath} />;

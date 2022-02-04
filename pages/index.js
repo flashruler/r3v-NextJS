@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import Peccary from "../components/models/peccary/peccary";
+import MenuBar from "../components/menuBar"
 import { useGLTF } from "@react-three/drei";
 import CookieConsent from "react-cookie-consent";
 
@@ -13,6 +14,7 @@ export default function Home() {
         <title>R3V Ver 0.2</title>
         <link rel="icon" href="/logo512.png" />
       </Head>
+      <MenuBar/>
       <div className="flex flex-col items-center justify-center h-screen w-full">
         <img className="h-24 w-auto" src="/logo512.png"></img>
         <div className="flex flex-row">
