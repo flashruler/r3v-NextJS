@@ -45,8 +45,8 @@ export default function Peccary(props) {
   const group = useRef();
   return (
     <group ref={group} {...props} dispose={null}>
-      <LoadSect1/>
-      <LoadSect2/>
+      {props.test && <LoadSect1 /> }
+      {props.test && <LoadSect2/>}
     </group>
   );
 }

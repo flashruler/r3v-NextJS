@@ -47,9 +47,7 @@ export default function Viewer() {
     getData();
   }, []);
   const [min, setMin] = useState(true);
-  const [mod, setMod] = useState(
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/glbs/peccary.glb"
-  );
+  const [mod, setMod] = useState(true);
   return (
     <div className="">
       <Head>
@@ -113,6 +111,19 @@ export default function Viewer() {
             </div>
           </div>
         )}
+        <div
+          className=" cursor-pointer flex justify-center items-center p-3 absolute w-40 mt-16 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
+          onClick={() => {
+            if (mod===true) {
+              setMod(false)
+              console.log(min)
+            }
+            else{
+              setMod(true);
+              console.log(min)
+            }
+          }}
+        ><h1>Minimize Model Background</h1></div>
 
         <Info />
         {/* Canvas */}
@@ -127,7 +138,7 @@ export default function Viewer() {
           <Suspense fallback={<Loader />}>
             <Center alignBottom>
               {/* <Scene /> */}
-              <Peccary />
+              <Peccary test={mod}/>
               <>
                 <OrbitControls />
               </>
