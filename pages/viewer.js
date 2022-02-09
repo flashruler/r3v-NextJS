@@ -11,6 +11,7 @@ import {
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Peccary from "../components/models/peccary/testmodel";
+import MenuBar from "../components/menuBar";
 import Info from "../components/info";
 import Link from "next/link";
 import Head from "next/head";
@@ -56,34 +57,7 @@ export default function Viewer() {
       </Head>
       <div className="w-screen h-screen z-0 flex flex-col">
         {/* Top Bar */}
-        <div className="w-screen h-10 z-20 bg-gray-300 flex flex-row items-center justify-between px-3">
-          <div className="flex flex-row items-center">
-            <Link href="/">
-              <span className="flex flex-row items-center cursor-pointer">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"
-                  />
-                </svg>
-                <h1 className="mx-1 font-light">R3V</h1>
-              </span>
-            </Link>
-          </div>
-          <div className="flex flex-row px-3">
-            <h1 className="mx-1 font-light justify-self-end italic">
-              Version 0.2
-            </h1>
-          </div>
-        </div>
+        <MenuBar/>
         {/* Side Bar Directions and Hide */}
         
         <div
@@ -101,6 +75,7 @@ export default function Viewer() {
         >
           <h1>Camera Controls</h1>
         </div>
+        
         {!min && (
           <div className="flex flex-col my-24 absolute">
             <div className="w-max h-max bg-gray-200 z-20 mx-2 rounded-md opacity-75 px-3 pb-4">
@@ -127,7 +102,7 @@ export default function Viewer() {
 
         <Info />
         {/* Canvas */}
-        <Canvas
+        <Canvas frameloop="demand"
           camera={{
             zoom: 15,
             position: [-15, 80, 60],

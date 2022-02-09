@@ -41,12 +41,28 @@ function LoadSect1() {
     />
   );
 }
+function LoadSect3(){
+  let model =
+    "https://hn3dmodels.s3.us-west-1.amazonaws.com/glbs/modelDraco.gltf";
+  let { nodes, materials } = useGLTF(model);
+  return (
+    <mesh
+      castShadow
+      receiveShadow
+      position={[-10, 0, 0]}
+      rotation={[30, 0, 0]}
+      geometry={nodes.mesh_0.geometry}
+      material={nodes.mesh_0.material}
+    />
+  );
+}
 export default function Peccary(props) {
   const group = useRef();
   return (
     <group ref={group} {...props} dispose={null}>
       {props.test && <LoadSect1 /> }
       {props.test && <LoadSect2/>}
+      <LoadSect3/>
     </group>
   );
 }

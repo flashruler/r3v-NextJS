@@ -12,7 +12,8 @@ export default function about() {
           <div className=" flex items-center justify-center"><img src="http://chei.ucsd.edu/wp-content/uploads/2019/01/logo-hoyonegro.png"></img></div>
           <div className="flex flex-col items-center p-3">
             <h1 className="text-3xl font-extralight">R3V</h1>
-            <p>R3V (or React 3D Viewer) is a project by Jay Buensuceso and Audrey Liang meant to visualize meshes and point cloud data for the Hoyo Negro project at the CHEI lab at the University of California, San Diego</p>
+            <p>R3V (or React 3D Viewer) is a project by Jay Buensuceso and Audrey Liang meant to visualize meshes
+                 and point cloud data for the Hoyo Negro project at the CHEI lab at the University of California, San Diego</p>
           </div>
         </div>
       </div>
