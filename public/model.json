@@ -1,5 +1,7 @@
 {
-    "description":"test",
+    "description":"model database of the hn3d models",
+    "cameraPos":[-15,80,60],
+    "cameraRot":[30,0,0],
     "models":[{
         "modelName":"Peccary",
         "sciName":"Tayassuidae",
