@@ -103,16 +103,16 @@ export default function GenerateCanvas(props) {
                   let sectRot = section.sectRot;
                   console.log(sectRot.x);
                   let { nodes, materials } = useGLTF(model2);
-                  return (
-                    <mesh
-                      castShadow
-                      receiveShadow
-                      position={[sectPos.x, sectPos.y, sectPos.z]}
-                      rotation={[sectRot.x, sectRot.y, sectRot.z]}
-                      geometry={nodes.mesh_0.geometry}
-                      material={nodes.mesh_0.material}
-                    />
-                  );
+                  // return (
+                  //   <mesh
+                  //     castShadow
+                  //     receiveShadow
+                  //     position={[sectPos.x, sectPos.y, sectPos.z]}
+                  //     rotation={[sectRot.x, sectRot.y, sectRot.z]}
+                  //     geometry={nodes.mesh_0.geometry}
+                  //     material={nodes.mesh_0.material}
+                  //   />
+                  // );
                 })}
                 <OrbitControls />
               </>
