@@ -12,7 +12,7 @@ import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Peccary from "../components/models/peccary/testmodel";
 import MenuBar from "../components/menuBar";
-import GenerateCanvas from "../components/3dloader/generateCanvas"
+import GenerateCanvas from "../components/3dloader/generateCanvas";
 import Info from "../components/info";
 import Link from "next/link";
 import Head from "next/head";
@@ -34,13 +34,12 @@ export default function Viewer() {
   useEffect(() => {
     getData();
   }, []);
-  if(data.description){
-    console.log(data)
+  if (data.description) {
+    console.log(data);
   }
   const [min, setMin] = useState(true);
   const [mod, setMod] = useState(true);
-  let params={cameraPos:data.cameraPos,
-    cameraRot:data.cameraRot}
+  let params = { cameraPos: data.cameraPos, cameraRot: data.cameraRot };
   return (
     <div className="">
       <Head>
@@ -49,55 +48,54 @@ export default function Viewer() {
       </Head>
       <div className="w-screen h-screen z-0 flex flex-col">
         {/* Top Bar */}
-        <MenuBar/>
+        <MenuBar />
         {/* Side Bar Directions and Hide */}
         <div className="absolute z-30 mt-12 flex flex-col">
-        <div
-          className=" cursor-pointer flex justify-center items-center p-3 my-3 w-auto z-30 
+          <div
+            className=" cursor-pointer flex justify-center items-center p-3 my-3 w-auto z-30 
           h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-          onClick={() => {
-            if (mod===true) {
-              setMod(false)
-              console.log(mod)
-            }
-            else{
-              setMod(true);
-              console.log(mod)
-            }
-          }}
-        ><h1>Minimize Model Background</h1></div>
-        {/* Camera Control Minimize */}
-        <div
-          className=" cursor-pointer flex justify-center items-center 
-          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-          onClick={() => {
-            if (min===true) {
-              setMin(false)
-              console.log(min)
-            }
-            else{
-              setMin(true);
-              console.log(min)
-            }
-          }}
-        >
-          <h1>Camera Controls</h1>
-        </div>
-        
-        {!min && (
-          <div className="flex flex-col mt-3">
-            <div className="w-max h-max bg-gray-200 z-20 mx-2 rounded-md opacity-75 px-3 pb-4">
-              <h1 className="text-center text-lg">Controls (PC/Mac)</h1>
-              <h1>Left Click - Rotate</h1>
-              <h1>Right Click - Pan Camera</h1>
-              <h1>Scroll - Zoom</h1>
-            </div>
+            onClick={() => {
+              if (mod === true) {
+                setMod(false);
+                console.log(mod);
+              } else {
+                setMod(true);
+                console.log(mod);
+              }
+            }}
+          >
+            <h1>Minimize Model Background</h1>
           </div>
-        )}
+          {/* Camera Control Minimize */}
+          <div
+            className=" cursor-pointer flex justify-center items-center 
+          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
+            onClick={() => {
+              if (min === true) {
+                setMin(false);
+                console.log(min);
+              } else {
+                setMin(true);
+                console.log(min);
+              }
+            }}
+          >
+            <h1>Camera Controls</h1>
+          </div>
 
+          {!min && (
+            <div className="flex flex-col mt-3">
+              <div className="w-max h-max bg-gray-200 z-20 mx-2 rounded-md opacity-75 px-3 pb-4">
+                <h1 className="text-center text-lg">Controls (PC/Mac)</h1>
+                <h1>Left Click - Rotate</h1>
+                <h1>Right Click - Pan Camera</h1>
+                <h1>Scroll - Zoom</h1>
+              </div>
+            </div>
+          )}
         </div>
         <Info />
-        <GenerateCanvas model="https://hn3dmodels.s3.us-west-1.amazonaws.com/glbs/modelDraco.gltf" params={params} minimize={mod}/>
+        <GenerateCanvas params={params} minimize={mod} />
       </div>
     </div>
   );

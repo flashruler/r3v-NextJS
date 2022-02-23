@@ -13,7 +13,7 @@ import * as THREE from "three";
 
 function LoadSect2() {
   let model2 =
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DPECC_2.GLTF";
+    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DMANDO_3.GLTF";
   let { nodes, materials } = useGLTF(model2);
   return (
     <mesh
@@ -28,7 +28,7 @@ function LoadSect2() {
 }
 function LoadSect1() {
   let model =
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DPECC_1.GLTF";
+    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DMANDO_2.GLTF";
   let { nodes, materials } = useGLTF(model);
   return (
     <mesh
@@ -43,7 +43,7 @@ function LoadSect1() {
 }
 function LoadSect3() {
   let model =
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/glbs/modelDraco.gltf";
+    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/MANDODRACO.GLTF";
   let { nodes, materials } = useGLTF(model);
   return (
     <mesh
@@ -56,7 +56,7 @@ function LoadSect3() {
     />
   );
 }
-export default function Peccary(props) {
+export default function Mando(props) {
   const group = useRef();
   return (
     <group ref={group} {...props} dispose={null}>
