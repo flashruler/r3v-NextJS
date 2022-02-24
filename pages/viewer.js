@@ -21,7 +21,7 @@ import ViewerMenu from "../components/viewerMenu";
 export default function Viewer() {
   const [Modmenu, setModmenu] = useState(false);
   const [data, setData] = useState([]);
-  const [model, setModel] = useState("");
+  const [model, setModel] = useState("peccary");
   // fetches json of models (test for future implementation)
   const getData = () => {
     fetch("model.json", {})
