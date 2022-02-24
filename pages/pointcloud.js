@@ -14,7 +14,7 @@ import { Suspense } from "react";
 function Scene() {
   const gltf = useLoader(
     PCDLoader,
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/PCTEST.PCD"
+    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DTAPIR.PCD"
   );
   return (
     <Suspense fallback={null}>

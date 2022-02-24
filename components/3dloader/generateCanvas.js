@@ -10,7 +10,7 @@ import {
 } from "@react-three/drei";
 import Peccary from "../models/peccary/testmodel";
 import Mando from "../models/peccary/mando";
-
+import Tapir from "../models/peccary/tapir";
 function Loader() {
   const { progress } = useProgress();
   return <Html center> {Math.round(progress)}% loaded</Html>;
@@ -18,6 +18,7 @@ function Loader() {
 
 export default function GenerateCanvas(props) {
   let minimize = props.minimize;
+  let model = props.model;
   let params = props.params;
   let cameraPos = params.cameraPos;
   let camRot = params.cameraRot;
@@ -34,7 +35,10 @@ export default function GenerateCanvas(props) {
       >
         <Suspense fallback={<Loader />}>
           <Center alignBottom>
-            <Mando test={minimize} />
+            {model === "mando" && <Mando test={minimize} />}
+            {model === "peccary" && <Peccary test={minimize} />}
+            {model === "tapir" && <Tapir />}
+
             <>
               <OrbitControls />
             </>

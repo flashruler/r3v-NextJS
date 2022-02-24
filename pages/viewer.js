@@ -19,6 +19,7 @@ import Head from "next/head";
 
 export default function Viewer() {
   const [data, setData] = useState([]);
+  const [model, setModel] = useState("");
   // fetches json of models (test for future implementation)
   const getData = () => {
     fetch("model.json", {})
@@ -34,9 +35,6 @@ export default function Viewer() {
   useEffect(() => {
     getData();
   }, []);
-  if (data.description) {
-    console.log(data);
-  }
   const [min, setMin] = useState(true);
   const [mod, setMod] = useState(true);
   let params = { cameraPos: data.cameraPos, cameraRot: data.cameraRot };
@@ -66,6 +64,34 @@ export default function Viewer() {
           >
             <h1>Minimize Model Background</h1>
           </div>
+          <div
+            className=" mb-2 cursor-pointer flex justify-center items-center 
+          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
+            onClick={() => {
+              setModel("peccary");
+            }}
+          >
+            <h1>Peccary</h1>
+          </div>
+          <div
+            className=" mb-2 cursor-pointer flex justify-center items-center 
+          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
+            onClick={() => {
+              setModel("mando");
+            }}
+          >
+            <h1>gompho mandible</h1>
+          </div>
+          <div
+            className=" mb-2 cursor-pointer flex justify-center items-center 
+          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
+            onClick={() => {
+              setModel("tapir");
+            }}
+          >
+            <h1>tapir</h1>
+          </div>
+
           {/* Camera Control Minimize */}
           <div
             className=" cursor-pointer flex justify-center items-center 
@@ -94,8 +120,9 @@ export default function Viewer() {
             </div>
           )}
         </div>
+
         <Info />
-        <GenerateCanvas params={params} minimize={mod} />
+        <GenerateCanvas params={params} minimize={mod} model={model} />
       </div>
     </div>
   );
