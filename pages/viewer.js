@@ -66,6 +66,7 @@ export default function Viewer() {
               Model Menu
             </h1>
           </div>
+          {/* model menu drop down */}
           {Modmenu && (
             <div className="absolute mt-7 z-30">
               <div
@@ -73,6 +74,7 @@ export default function Viewer() {
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
                 onClick={() => {
                   setModel("peccary");
+                  setModmenu(false);
                 }}
               >
                 <h1>Peccary</h1>
@@ -82,6 +84,7 @@ export default function Viewer() {
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
                 onClick={() => {
                   setModel("mando");
+                  setModmenu(false);
                 }}
               >
                 <h1>gompho mandible</h1>
@@ -91,6 +94,7 @@ export default function Viewer() {
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
                 onClick={() => {
                   setModel("tapir");
+                  setModmenu(false);
                 }}
               >
                 <h1>tapir</h1>
