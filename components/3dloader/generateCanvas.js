@@ -1,8 +1,7 @@
-import React, { Suspense, useState, useEffect } from "react";
+import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Environment,
-  PerspectiveCamera,
   OrbitControls,
   Html,
   useProgress,

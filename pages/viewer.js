@@ -1,22 +1,8 @@
 import React, { Suspense, useState, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
-import {
-  Environment,
-  PerspectiveCamera,
-  OrbitControls,
-  Html,
-  useProgress,
-  Center,
-} from "@react-three/drei";
-import { useLoader } from "@react-three/fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import Peccary from "../components/models/peccary/testmodel";
 import MenuBar from "../components/menuBar";
 import GenerateCanvas from "../components/3dloader/generateCanvas";
 import Info from "../components/info";
-import Link from "next/link";
 import Head from "next/head";
-import ViewerMenu from "../components/viewerMenu";
 
 export default function Viewer() {
   const [Modmenu, setModmenu] = useState(false);

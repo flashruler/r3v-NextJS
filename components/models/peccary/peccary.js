@@ -1,17 +1,17 @@
-import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
-import { Environment, PerspectiveCamera, OrbitControls, Html, useProgress, Center } from '@react-three/drei'
+import React, { useRef } from "react";
+import { useGLTF } from "@react-three/drei";
 
 export default function Peccary(props) {
-    const group = useRef()
-    const model = 'https://hn3dmodels.s3.us-west-1.amazonaws.com/glbs/modelDraco.gltf'
-    const model2 = 'https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HALFDRACO.GLTF'
-    const { nodes, materials } = useGLTF(model)
-    // console.log(model)
-    return (
-
-        <group ref={group} {...props} dispose={null}>
-            {/* <Html position={[0,0,0]}
+  const group = useRef();
+  const model =
+    "https://hn3dmodels.s3.us-west-1.amazonaws.com/glbs/modelDraco.gltf";
+  const model2 =
+    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HALFDRACO.GLTF";
+  const { nodes, materials } = useGLTF(model);
+  // console.log(model)
+  return (
+    <group ref={group} {...props} dispose={null}>
+      {/* <Html position={[0,0,0]}
                 as="div"
                 center
                 transform
@@ -27,14 +27,14 @@ export default function Peccary(props) {
                 >
                     Peccary Lower
           </button></Html> */}
-            <mesh
-                castShadow
-                receiveShadow
-                position={[-10, 0, 0]}
-                rotation={[30, 0, 0]}
-                geometry={nodes.mesh_0.geometry}
-                material={nodes.mesh_0.material}
-            />
-        </group>
-    )
+      <mesh
+        castShadow
+        receiveShadow
+        position={[-10, 0, 0]}
+        rotation={[30, 0, 0]}
+        geometry={nodes.mesh_0.geometry}
+        material={nodes.mesh_0.material}
+      />
+    </group>
+  );
 }

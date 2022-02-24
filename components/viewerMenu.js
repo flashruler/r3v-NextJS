@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 export default function ViewerMenu(props) {
   const [Modmenu, setModmenu] = useState(false);
   return (
