@@ -16,8 +16,10 @@ import GenerateCanvas from "../components/3dloader/generateCanvas";
 import Info from "../components/info";
 import Link from "next/link";
 import Head from "next/head";
+import ViewerMenu from "../components/viewerMenu";
 
 export default function Viewer() {
+  const [Modmenu, setModmenu] = useState(false);
   const [data, setData] = useState([]);
   const [model, setModel] = useState("");
   // fetches json of models (test for future implementation)
@@ -47,8 +49,57 @@ export default function Viewer() {
       <div className="w-screen h-screen z-0 flex flex-col">
         {/* Top Bar */}
         <MenuBar />
+        <div className="flex flex-col h-6 w-full bg-black">
+          <div className=" w-max">
+            <h1
+              className="font-light text-white cursor-pointer mx-3"
+              onClick={() => {
+                if (!Modmenu) {
+                  setModmenu(true);
+                  console.log(Modmenu);
+                } else if (Modmenu) {
+                  setModmenu(false);
+                  console.log(Modmenu);
+                }
+              }}
+            >
+              Model Menu
+            </h1>
+          </div>
+          {Modmenu && (
+            <div className="absolute mt-7 z-30">
+              <div
+                className=" mb-2 cursor-pointer flex justify-center items-center 
+          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
+                onClick={() => {
+                  setModel("peccary");
+                }}
+              >
+                <h1>Peccary</h1>
+              </div>
+              <div
+                className=" mb-2 cursor-pointer flex justify-center items-center 
+          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
+                onClick={() => {
+                  setModel("mando");
+                }}
+              >
+                <h1>gompho mandible</h1>
+              </div>
+              <div
+                className=" mb-2 cursor-pointer flex justify-center items-center 
+          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
+                onClick={() => {
+                  setModel("tapir");
+                }}
+              >
+                <h1>tapir</h1>
+              </div>
+            </div>
+          )}
+        </div>
         {/* Side Bar Directions and Hide */}
-        <div className="absolute z-30 mt-12 flex flex-col">
+        <div className="absolute top-0 right-0 z-30 mt-16 flex flex-col">
           <div
             className=" cursor-pointer flex justify-center items-center p-3 my-3 w-auto z-30 
           h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
@@ -63,33 +114,6 @@ export default function Viewer() {
             }}
           >
             <h1>Minimize Model Background</h1>
-          </div>
-          <div
-            className=" mb-2 cursor-pointer flex justify-center items-center 
-          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-            onClick={() => {
-              setModel("peccary");
-            }}
-          >
-            <h1>Peccary</h1>
-          </div>
-          <div
-            className=" mb-2 cursor-pointer flex justify-center items-center 
-          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-            onClick={() => {
-              setModel("mando");
-            }}
-          >
-            <h1>gompho mandible</h1>
-          </div>
-          <div
-            className=" mb-2 cursor-pointer flex justify-center items-center 
-          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-            onClick={() => {
-              setModel("tapir");
-            }}
-          >
-            <h1>tapir</h1>
           </div>
 
           {/* Camera Control Minimize */}
