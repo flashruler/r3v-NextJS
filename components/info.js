@@ -1,6 +1,31 @@
 import React, { Suspense, useState, useEffect } from "react";
+import axios from "axios";
+
 export default function Info(props) {
+  let modelName = "";
+  let SciName = "";
+  let desc = "";
   const [min, setMin] = useState(true);
+  const data = fetch("http://localhost:1337/api/models", {
+    method: "GET",
+    headers: {
+      Authorization: process.env.STRAPI_API_KEY,
+    },
+  })
+    .then((response) => response.json())
+    .then((models) => {
+      return models.data;
+    });
+  const getData = async () => {
+    const a = await data;
+    console.log(a);
+  };
+  getData().map((x) => {
+    if (x.modelname === "peccary") {
+      console.log(x);
+    }
+  });
+
   if (min === false) {
     return (
       <div

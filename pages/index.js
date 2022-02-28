@@ -6,6 +6,7 @@ import Peccary from "../components/models/peccary/peccary";
 import MenuBar from "../components/menuBar";
 import { useGLTF } from "@react-three/drei";
 import CookieConsent from "react-cookie-consent";
+import axios from "axios";
 
 export default function Home() {
   return (
