@@ -34,9 +34,9 @@ export default function GenerateCanvas(props) {
       >
         <Suspense fallback={<Loader />}>
           <Center alignBottom>
-            {model === "mando" && <Mando test={minimize} />}
-            {model === "peccary" && <Peccary test={minimize} />}
-            {model === "tapir" && <Tapir />}
+            {model === "Mando" && <Mando test={minimize} />}
+            {model === "Peccary" && <Peccary test={minimize} />}
+            {model === "Tapir" && <Tapir />}
 
             <>
               <OrbitControls />

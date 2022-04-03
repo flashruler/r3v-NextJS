@@ -1,5 +1,4 @@
 import React, { Suspense, useState, useEffect } from "react";
-import axios from "axios";
 
 export default function Info(props) {
   let modelName = "";
