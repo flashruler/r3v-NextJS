@@ -10,6 +10,7 @@ import {
 import Peccary from "../models/peccary/testmodel";
 import Mando from "../models/peccary/mando";
 import Tapir from "../models/peccary/tapir";
+import Gomp1 from "../models/peccary/gomp1";
 function Loader() {
   const { progress } = useProgress();
   return <Html center> {Math.round(progress)}% loaded</Html>;
@@ -37,6 +38,7 @@ export default function GenerateCanvas(props) {
             {model === "mando" && <Mando test={minimize} />}
             {model === "peccary" && <Peccary test={minimize} />}
             {model === "tapir" && <Tapir />}
+            {model === "gomp1" && <Gomp1 />}
 
             <>
               <OrbitControls />
