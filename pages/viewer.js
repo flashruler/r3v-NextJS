@@ -3,12 +3,14 @@ import MenuBar from "../components/menuBar";
 import GenerateCanvas from "../components/3dloader/generateCanvas";
 import Info from "../components/info";
 import Head from "next/head";
+import { applyProps } from "@react-three/fiber";
 
-export default function Viewer() {
+export default function Viewer(props) {
   const [Modmenu, setModmenu] = useState(false);
   const [data, setData] = useState([]);
-  const [model, setModel] = useState("peccary");
+  const [model, setModel] = useState("Peccary");
   // fetches json of models (test for future implementation)
+  console.log(props.modelInfo);
   const getData = () => {
     fetch("model.json", {})
       .then(function (response) {
@@ -59,7 +61,7 @@ export default function Viewer() {
                 className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
                 onClick={() => {
-                  setModel("peccary");
+                  setModel("Peccary");
                   setModmenu(false);
                 }}
               >
@@ -69,7 +71,7 @@ export default function Viewer() {
                 className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
                 onClick={() => {
-                  setModel("mando");
+                  setModel("Mando");
                   setModmenu(false);
                 }}
               >
@@ -79,7 +81,7 @@ export default function Viewer() {
                 className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
                 onClick={() => {
-                  setModel("tapir");
+                  setModel("Tapir");
                   setModmenu(false);
                 }}
               >
@@ -145,9 +147,23 @@ export default function Viewer() {
           )}
         </div>
 
-        <Info />
+        <Info modelInfo={props.modelInfo} model={model} />
         <GenerateCanvas params={params} minimize={mod} model={model} />
       </div>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const data = await fetch("https://hn3d-cms.herokuapp.com/api/models", {
+    method: "GET",
+    Authorization: process.env.STRAPI_API_KEY,
+  });
+  const modelInfo = await data.json();
+  console.log(modelInfo);
+  return {
+    props: {
+      modelInfo,
+    },
+  };
 }
