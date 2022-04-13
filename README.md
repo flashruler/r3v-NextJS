@@ -1,4 +1,4 @@
-#React 3D Viewer (R3V) Built in NextJS
+# React 3D Viewer (R3V) Built in NextJS
 React 3D Viewer (R3V) is a program built to display mesh data of bones from the Hoyo Negro cave in Quintana Roo, Mexico.
 
 This was built under the direction of UCSD's Cultural Heritage Engineering Initiative Lab.
