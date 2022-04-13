@@ -8,9 +8,9 @@ import {
   Center,
 } from "@react-three/drei";
 import Peccary from "../models/peccary/testmodel";
-import Mando from "../models/peccary/Mando";
-import Tapir from "../models/peccary/Tapir";
-import Gomp1 from "../models/peccary/Gomp1";
+import Mando from "../models/peccary/mando";
+import Tapir from "../models/peccary/tapir";
+import Gomp1 from "../models/peccary/gomp1";
 function Loader() {
   const { progress } = useProgress();
   return <Html center> {Math.round(progress)}% loaded</Html>;
