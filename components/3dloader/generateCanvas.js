@@ -8,9 +8,9 @@ import {
   Center,
 } from "@react-three/drei";
 import Peccary from "../models/peccary/testmodel";
-import Mando from "../models/peccary/mando";
-import Tapir from "../models/peccary/tapir";
-import Gomp1 from "../models/peccary/gomp1";
+import Mando from "../models/peccary/Mando";
+import Tapir from "../models/peccary/Tapir";
+import Gomp1 from "../models/peccary/Gomp1";
 function Loader() {
   const { progress } = useProgress();
   return <Html center> {Math.round(progress)}% loaded</Html>;
@@ -35,10 +35,10 @@ export default function GenerateCanvas(props) {
       >
         <Suspense fallback={<Loader />}>
           <Center alignBottom>
-            {model === "mando" && <Mando test={minimize} />}
-            {model === "peccary" && <Peccary test={minimize} />}
-            {model === "tapir" && <Tapir />}
-            {model === "gomp1" && <Gomp1 />}
+            {model === "Mando" && <Mando test={minimize} />}
+            {model === "Peccary" && <Peccary test={minimize} />}
+            {model === "Tapir" && <Tapir />}
+            {model === "Gomp1" && <Gomp1 />}
 
             <>
               <OrbitControls />
