@@ -10,6 +10,7 @@ export default function Viewer(props) {
   const [data, setData] = useState([]);
   const [model, setModel] = useState("Peccary");
   // fetches json of models (test for future implementation)
+  console.log(props.modelInfo);
   const getData = () => {
     fetch("model.json", {})
       .then(function (response) {
@@ -136,23 +137,23 @@ export default function Viewer(props) {
           )}
         </div>
 
-        {/* <Info modelInfo={props.modelInfo} model={model} /> */}
+        <Info modelInfo={props.modelInfo} model={model} />
         <GenerateCanvas params={params} minimize={mod} model={model} />
       </div>
     </div>
   );
 }
 
-// export async function getStaticProps() {
-//   const data = await fetch("http://localhost:1337/api/models", {
-//     method: "GET",
-//     Authorization: process.env.STRAPI_API_KEY,
-//   });
-//   const modelInfo = await data.json();
-//   console.log(modelInfo);
-//   return {
-//     props: {
-//       modelInfo,
-//     },
-//   };
-// }
+export async function getStaticProps() {
+  const data = await fetch("https://hn3d-cms.herokuapp.com/api/models", {
+    method: "GET",
+    Authorization: process.env.STRAPI_API_KEY,
+  });
+  const modelInfo = await data.json();
+  console.log(modelInfo);
+  return {
+    props: {
+      modelInfo,
+    },
+  };
+}
