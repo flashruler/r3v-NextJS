@@ -40,7 +40,7 @@ export default function Viewer(props) {
         <div className="flex flex-col h-6 w-full bg-black">
           <div className=" w-max">
             <h1
-              className="font-light text-white cursor-pointer mx-3"
+              className="font-light text-xl text-white cursor-pointer mx-3"
               onClick={() => {
                 if (!Modmenu) {
                   setModmenu(true);

@@ -52,7 +52,7 @@ export default function ViewerMenu(props) {
             className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
             onClick={() => {
-              setModel("Gomp1");
+              setModel("omp1");
             }}
           >
             <h1>gomphothere 1</h1>

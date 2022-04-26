@@ -7,6 +7,7 @@ export default function Info(props) {
   const [min, setMin] = useState(true);
   const data = props.modelInfo.data;
   console.log(data[0].attributes);
+
   if (data[0].attributes) {
     for (let x = 0; x < data.length; x++) {
       if (data[x].attributes.modelName === props.model) {
