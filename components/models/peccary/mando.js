@@ -1,15 +1,6 @@
 import React, { useRef } from "react";
-import { useState, useMemo } from "react";
 import { useGLTF } from "@react-three/drei";
-import {
-  Environment,
-  PerspectiveCamera,
-  OrbitControls,
-  Html,
-  useProgress,
-  Center,
-} from "@react-three/drei";
-import * as THREE from "three";
+
 
 function LoadSect2() {
   let model2 =
