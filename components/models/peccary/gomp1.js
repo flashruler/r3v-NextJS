@@ -4,7 +4,7 @@ import { useGLTF } from "@react-three/drei";
 
 function LoadSect2() {
   let model2 =
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_2.GLTF";
+    "gomp1/HN3DGOMP1_2-TEST.GLB";
   let { nodes, materials } = useGLTF(model2);
   return (
     <mesh
@@ -19,7 +19,7 @@ function LoadSect2() {
 }
 function LoadSect1() {
   let model =
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_1.GLTF";
+    "gomp1/HN3DGOMP1_1-TEST.GLB";
   let { nodes, materials } = useGLTF(model);
   return (
     <mesh
@@ -34,7 +34,7 @@ function LoadSect1() {
 }
 function LoadSect3() {
   let model =
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_3.GLTF";
+    "gomp1/HN3DGOMP1_3-TEST.GLB";
   let { nodes, materials } = useGLTF(model);
   return (
     <mesh
@@ -49,7 +49,7 @@ function LoadSect3() {
 }
 function LoadSect4() {
   let model =
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_4.GLTF";
+    "gomp1/HN3DGOMP1_4-TEST.GLB";
   let { nodes, materials } = useGLTF(model);
   return (
     <mesh
@@ -64,7 +64,7 @@ function LoadSect4() {
 }
 function LoadSect5() {
   let model =
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_5.GLTF";
+    "gomp1/HN3DGOMP1_5-TEST.GLB";
   let { nodes, materials } = useGLTF(model);
   return (
     <mesh
@@ -79,7 +79,7 @@ function LoadSect5() {
 }
 function LoadSect6() {
   let model =
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_6.GLTF";
+    "gomp1/HN3DGOMP1_6-TEST.GLB";
   let { nodes, materials } = useGLTF(model);
   return (
     <mesh
