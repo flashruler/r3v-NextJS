@@ -68,7 +68,7 @@ export default function GenerateCanvas(props) {
             {model === "Mando" && <Mando test={minimize} />}
             {model === "Peccary" && <Peccary test={minimize} />}
             {model === "Tapir" && <Tapir />}
-            {model === "Gomp1" && <Gomp1 />}
+            {model === "Gomp1" && <Gomp1 nodes={props.grompNodes} />}
             {model === "Gomp2" && <Gomp2 />}
 
             <>
