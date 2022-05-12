@@ -92,16 +92,26 @@ function LoadSect6() {
     />
   );
 }
+
+function LoadSects(props) {
+  return (
+    prop.nodes.map((node) =>
+      <mesh
+        castShadow
+        receiveShadow
+        position={[-10, 15, 0]}
+        rotation={[30, 0, 0]}
+        geometry={node.mesh_0.geometry}
+        material={node.mesh_0.material}
+      />)
+  )
+}
+
 export default function Gomp1(props) {
   const group = useRef();
   return (
     <group ref={group} {...props} dispose={null}>
-      <LoadSect1 />
-      <LoadSect2 />
-      <LoadSect3 />
-      <LoadSect4 />
-      <LoadSect5 />
-      <LoadSect6 />
+      <LoadSects nodes={props.nodes} />
     </group>
   );
 }

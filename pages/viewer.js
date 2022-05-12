@@ -83,7 +83,7 @@ export default function Viewer(props) {
         </div>
 
         {/* <Info modelInfo={props.modelInfo} model={model} /> */}
-        <GenerateCanvas params={params} minimize={mod} model={model} />
+        <GenerateCanvas params={params} minimize={mod} model={model} grompNodes={props.grompNodes} />
         <div className=" absolute mb-8 z-10 flex flex-row justify-center items-center inset-x-0 bottom-0 h-16">
           <div className="flex flex-row items-center justify-center opacity-75 bg-gray-300 rounded-md h-16 w-2/4">
             <div
@@ -111,59 +111,59 @@ export default function Viewer(props) {
                 />
               </svg>
               {Modmenu && (
-            <div className="absolute mb-60 z-30 flex flex-col h-40 w-auto overflow-y-auto overflow-hidden">
-              <div
-                className=" mb-2 cursor-pointer flex justify-center items-center 
+                <div className="absolute mb-60 z-30 flex flex-col h-40 w-auto overflow-y-auto overflow-hidden">
+                  <div
+                    className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-                onClick={() => {
-                  setModel("Peccary");
-                  setModmenu(false);
-                }}
-              >
-                <h1>Peccary</h1>
-              </div>
-              <div
-                className=" mb-2 cursor-pointer flex justify-center items-center 
+                    onClick={() => {
+                      setModel("Peccary");
+                      setModmenu(false);
+                    }}
+                  >
+                    <h1>Peccary</h1>
+                  </div>
+                  <div
+                    className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-                onClick={() => {
-                  setModel("Mando");
-                  setModmenu(false);
-                }}
-              >
-                <h1>gompho mandible</h1>
-              </div>
-              <div
-                className=" mb-2 cursor-pointer flex justify-center items-center 
+                    onClick={() => {
+                      setModel("Mando");
+                      setModmenu(false);
+                    }}
+                  >
+                    <h1>gompho mandible</h1>
+                  </div>
+                  <div
+                    className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-                onClick={() => {
-                  setModel("Tapir");
-                  setModmenu(false);
-                }}
-              >
-                <h1>tapir</h1>
-              </div>
-              <div
-                className=" mb-2 cursor-pointer flex justify-center items-center 
+                    onClick={() => {
+                      setModel("Tapir");
+                      setModmenu(false);
+                    }}
+                  >
+                    <h1>tapir</h1>
+                  </div>
+                  <div
+                    className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-                onClick={() => {
-                  setModel("Gomp1");
-                  setModmenu(false);
-                }}
-              >
-                <h1>gomphothere 1</h1>
-              </div>
-              <div
-                className=" mb-2 cursor-pointer flex justify-center items-center 
+                    onClick={() => {
+                      setModel("Gomp1");
+                      setModmenu(false);
+                    }}
+                  >
+                    <h1>gomphothere 1</h1>
+                  </div>
+                  <div
+                    className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-                onClick={() => {
-                  setModel("Gomp2");
-                  setModmenu(false);
-                }}
-              >
-                <h1>gomphothere 2</h1>
-              </div>
-            </div>
-          )}
+                    onClick={() => {
+                      setModel("Gomp2");
+                      setModmenu(false);
+                    }}
+                  >
+                    <h1>gomphothere 2</h1>
+                  </div>
+                </div>
+              )}
             </div>
             <div
               className="flex flex-row items-center cursor-pointer mx-4"
@@ -197,6 +197,24 @@ export default function Viewer(props) {
   );
 }
 
+async function getGompNodes() {
+  const modelUrls = ["https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_1.GLTF",
+    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_2.GLTF",
+    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_3.GLTF",
+    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_4.GLTF",
+    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_5.GLTF",
+    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_6.GLTF"]
+
+  nodes = []
+
+  modelUrls.map(() => {
+    const { nodes } = useGLTF(model)
+    nodes.push(nodes)
+  })
+
+  return nodes
+}
+
 export async function getStaticProps() {
   const data = await fetch("https://hn3d-cms.herokuapp.com/api/models", {
     method: "GET",
@@ -207,6 +225,7 @@ export async function getStaticProps() {
   return {
     props: {
       modelInfo,
+      grompNodes: getGrompNotes();
     },
   };
 }
