@@ -1,6 +1,8 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useRef, useEffect } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
+import { useThree } from '@react-three/fiber'
+
 import {
   Environment,
   OrbitControls,
@@ -44,6 +46,26 @@ In this case, it is just a uniform green
   );
 }
 
+const Controls = () => {
+  const { camera } = useThree()
+  const controlsRef = useRef()    
+
+  useEffect(() => {
+    controlsRef.current.addEventListener('change', function () {
+      if (this.target.y < 0) {
+        this.target.y = 0
+        camera.position.y = 0
+      } else if (this.target.y > 10) {
+        this.target.y = 10
+        camera.position.y = 10
+      }
+    })
+  }, [])
+
+  return (
+    <OrbitControls ref={controlsRef} enablePan={true} enableZoom={true} enableRotate={true} minDistance={10} maxDistance={40} maxPolarAngle={Math.PI/2}/>
+  )
+}
 export default function GenerateCanvas(props) {
   let minimize = props.minimize;
   let model = props.model;
@@ -54,14 +76,14 @@ export default function GenerateCanvas(props) {
     return (
       <Canvas
         frameloop="demand"
-        camera={{
-          zoom: 15,
-          position: cameraPos,
-          rotation: camRot,
-          fov: 100,
-          minZoom: 10,
-          maxZoom: 20,
-        }}
+        // camera={{
+        //   zoom: 15,
+        //   position: cameraPos,
+        //   rotation: camRot,
+        //   fov: 100,
+        //   minDistance: 10,
+        //   maxDistance: 20,
+        // }}
       >
         <Suspense fallback={<Loader />}>
           <Center alignBottom>
@@ -72,7 +94,7 @@ export default function GenerateCanvas(props) {
             {model === "Gomp2" && <Gomp2 />}
 
             <>
-              <OrbitControls />
+              <Controls/>
             </>
             <mesh />
             <Image />
