@@ -12,7 +12,6 @@ function LoadSect2() {
       receiveShadow
       position={[-10, 15, 0]}
       rotation={[30, 0, 0]}
-      scale={}
       geometry={nodes.mesh_0.geometry}
       material={nodes.mesh_0.material}
     />
