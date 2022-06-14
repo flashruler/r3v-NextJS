@@ -9,8 +9,9 @@ export default function Viewer(props) {
   const [Modmenu, setModmenu] = useState(false);
   const [data, setData] = useState([]);
   const [model, setModel] = useState("Peccary");
+  const [info, viewInfo] = useState(false);
   // fetches json of models (test for future implementation)
-  console.log(props.modelInfo);
+  // console.log(props.modelInfo);
   const getData = () => {
     fetch("model.json", {})
       .then(function (response) {
@@ -27,6 +28,7 @@ export default function Viewer(props) {
   }, []);
   const [min, setMin] = useState(true);
   const [mod, setMod] = useState(true);
+  const [home, setHome] = useState(false);
   let params = { cameraPos: data.cameraPos, cameraRot: data.cameraRot };
   return (
     <div className="">
@@ -81,11 +83,16 @@ export default function Viewer(props) {
             </div>
           )}
         </div>
+        {info && <Info modelInfo={props.modelInfo} model={model} />}
 
-        {/* <Info modelInfo={props.modelInfo} model={model} /> */}
-        <GenerateCanvas params={params} minimize={mod} model={model} />
+        <GenerateCanvas
+          params={params}
+          minimize={mod}
+          model={model}
+          home={home}
+        />
         <div className=" absolute mb-8 z-10 flex flex-row justify-center items-center inset-x-0 bottom-0 h-16">
-          <div className="flex flex-row items-center justify-center opacity-75 bg-gray-300 rounded-md h-16 w-2/4">
+          <div className="flex flex-row items-center justify-center opacity-75 bg-gray-300 rounded-md h-16 w-fill">
             <div
               className="flex flex-row items-center cursor-pointer mx-4"
               onClick={() => {
@@ -111,59 +118,59 @@ export default function Viewer(props) {
                 />
               </svg>
               {Modmenu && (
-            <div className="absolute mb-60 z-30 flex flex-col h-40 w-auto overflow-y-auto overflow-hidden">
-              <div
-                className=" mb-2 cursor-pointer flex justify-center items-center 
+                <div className="absolute mb-60 z-30 flex flex-col h-40 w-auto overflow-y-auto overflow-hidden">
+                  <div
+                    className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-                onClick={() => {
-                  setModel("Peccary");
-                  setModmenu(false);
-                }}
-              >
-                <h1>Peccary</h1>
-              </div>
-              <div
-                className=" mb-2 cursor-pointer flex justify-center items-center 
+                    onClick={() => {
+                      setModel("Peccary");
+                      setModmenu(false);
+                    }}
+                  >
+                    <h1>Peccary</h1>
+                  </div>
+                  <div
+                    className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-                onClick={() => {
-                  setModel("Mando");
-                  setModmenu(false);
-                }}
-              >
-                <h1>gompho mandible</h1>
-              </div>
-              <div
-                className=" mb-2 cursor-pointer flex justify-center items-center 
+                    onClick={() => {
+                      setModel("Mando");
+                      setModmenu(false);
+                    }}
+                  >
+                    <h1>gompho mandible</h1>
+                  </div>
+                  <div
+                    className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-                onClick={() => {
-                  setModel("Tapir");
-                  setModmenu(false);
-                }}
-              >
-                <h1>tapir</h1>
-              </div>
-              <div
-                className=" mb-2 cursor-pointer flex justify-center items-center 
+                    onClick={() => {
+                      setModel("Tapir");
+                      setModmenu(false);
+                    }}
+                  >
+                    <h1>tapir</h1>
+                  </div>
+                  <div
+                    className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-                onClick={() => {
-                  setModel("Gomp1");
-                  setModmenu(false);
-                }}
-              >
-                <h1>gomphothere 1</h1>
-              </div>
-              <div
-                className=" mb-2 cursor-pointer flex justify-center items-center 
+                    onClick={() => {
+                      setModel("Gomp1");
+                      setModmenu(false);
+                    }}
+                  >
+                    <h1>gomphothere 1</h1>
+                  </div>
+                  <div
+                    className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-                onClick={() => {
-                  setModel("Gomp2");
-                  setModmenu(false);
-                }}
-              >
-                <h1>gomphothere 2</h1>
-              </div>
-            </div>
-          )}
+                    onClick={() => {
+                      setModel("Gomp2");
+                      setModmenu(false);
+                    }}
+                  >
+                    <h1>gomphothere 2</h1>
+                  </div>
+                </div>
+              )}
             </div>
             <div
               className="flex flex-row items-center cursor-pointer mx-4"
@@ -190,6 +197,58 @@ export default function Viewer(props) {
                 />
               </svg>
             </div>
+            <div
+              className="mx-4"
+              onClick={() => {
+                if (home === false) {
+                  setHome(true);
+                  console.log(home);
+                } else {
+                  setHome(false);
+                  console.log(home);
+                }
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-10 w-10"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                />
+              </svg>
+            </div>
+            <div
+              className="mx-4 cursor-pointer"
+              onClick={() => {
+                if (info === false) {
+                  viewInfo(true);
+                } else {
+                  viewInfo(false);
+                }
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-10 w-10"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
@@ -203,7 +262,7 @@ export async function getStaticProps() {
     Authorization: process.env.STRAPI_API_KEY,
   });
   const modelInfo = await data.json();
-  console.log(modelInfo);
+  // console.log(modelInfo);
   return {
     props: {
       modelInfo,

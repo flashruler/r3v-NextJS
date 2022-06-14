@@ -1,7 +1,7 @@
 import React, { Suspense, useRef, useEffect } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
-import { useThree } from '@react-three/fiber'
+import { useThree } from "@react-three/fiber";
 
 import {
   Environment,
@@ -46,44 +46,77 @@ In this case, it is just a uniform green
   );
 }
 
-const Controls = () => {
-  const { camera } = useThree()
-  const controlsRef = useRef()    
+const Controls = (props) => {
+  const { camera } = useThree();
+  const controlsRef = useRef();
 
   useEffect(() => {
-    controlsRef.current.addEventListener('change', function () {
-      if (this.target.y < 0) {
-        this.target.y = 0
-        camera.position.y = 0
-      } else if (this.target.y > 10) {
-        this.target.y = 10
-        camera.position.y = 10
+    controlsRef.current.addEventListener("change", function () {
+      if (this.target.y < -50) {
+        this.target.y = -50;
+        camera.position.y = -50;
+      } else if (this.target.y > 50) {
+        this.target.y = 50;
+        camera.position.y = 50;
+      } else if (this.target.x < -50) {
+        this.target.x = -50;
+        camera.position.x = -50;
+      } else if (this.target.x > 50) {
+        this.target.x = 50;
+        camera.position.x = 50;
+      } else if (this.target.z < -50) {
+        this.target.z = -50;
+        camera.position.z = -50;
+      } else if (this.target.z > 50) {
+        this.target.z = 50;
+        camera.position.z = 50;
       }
-    })
-  }, [])
+      // if (props.home === true) {
+      //   console.log("You hit this function");
+      //   this.target.x = 15;
+      //   camera.position.x = 15;
+      //   this.target.y = 80;
+      //   camera.position.y = 80;
+      //   this.target.z = 60;
+      //   camera.position.z = 60;
+      // }
+      // console.log("X = " + this.target.x);
+      // console.log("Y = " + this.target.y);
+      // console.log("Z = " + this.target.z);
+    });
+  }, []);
 
   return (
-    <OrbitControls ref={controlsRef} enablePan={true} enableZoom={true} enableRotate={true} minDistance={10} maxDistance={40} maxPolarAngle={Math.PI/2}/>
-  )
-}
+    <OrbitControls
+      ref={controlsRef}
+      enablePan={true}
+      enableZoom={true}
+      enableRotate={true}
+      minDistance={10}
+      maxDistance={200}
+      maxPolarAngle={Math.PI / 2}
+    />
+  );
+};
 export default function GenerateCanvas(props) {
   let minimize = props.minimize;
   let model = props.model;
   let params = props.params;
   let cameraPos = params.cameraPos;
   let camRot = params.cameraRot;
+  let home = props.home;
   if (params) {
     return (
       <Canvas
         frameloop="demand"
-        // camera={{
-        //   zoom: 15,
-        //   position: cameraPos,
-        //   rotation: camRot,
-        //   fov: 100,
-        //   minDistance: 10,
-        //   maxDistance: 20,
-        // }}
+        camera={{
+          zoom: 15,
+          position: cameraPos,
+          rotation: camRot,
+          fov: 100,
+          minDistance: 10,
+          maxDistance: 20,
+        }}
       >
         <Suspense fallback={<Loader />}>
           <Center alignBottom>
@@ -94,7 +127,7 @@ export default function GenerateCanvas(props) {
             {model === "Gomp2" && <Gomp2 />}
 
             <>
-              <Controls/>
+              <Controls home={home} />
             </>
             <mesh />
             <Image />
