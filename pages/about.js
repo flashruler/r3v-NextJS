@@ -8,7 +8,7 @@ export default function about() {
       </div>
       {/* Flavor Text */}
       <div className="flex justify-center">
-        <div className="grid grid-cols-2 w-3/4 bg-blue-100 items-center">
+        <div className="grid grid-cols-2 w-3/4 bg-blue-300 items-center">
           <div className=" flex items-center justify-center"><img src="http://chei.ucsd.edu/wp-content/uploads/2019/01/logo-hoyonegro.png"></img></div>
           <div className="flex flex-col items-center p-3">
             <h1 className="text-3xl font-extralight">R3V</h1>

@@ -40,38 +40,21 @@ export default function Viewer(props) {
         {/* Top Bar */}
         <MenuBar />
         {/* Side Bar Directions and Hide */}
+        {/* <div className="absolute top-0 left-0 z-30 mx-1 mt-12 bg-gray-300 w-1/5 h-1/4">
+          <h1 className="text-xl">Gomphothere</h1>
+          
+          <h1 className="text-xl">Peccary</h1>
+          <div className="flex flex-col h-auto w-12 items-center mx-2 cursor-pointer" onClick={() => {
+                      setModel("Peccary");
+                      setModmenu(false);
+                    }}>
+                      <div className="bg-black w-10 h-10">Pecc</div><h1 className="text-sm">Peccary</h1></div>
+          <h1 className="text-xl">Puma</h1>
+          <h1 className="text-xl">Tapir</h1>
+          <h1 className="text-xl">Sloths</h1>
+        </div> */}
         <div className="absolute top-0 right-0 z-30 mt-16 flex flex-col">
-          {/* <div
-            className=" cursor-pointer flex justify-center items-center p-3 my-3 w-auto z-30 
-          h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-            onClick={() => {
-              if (mod === true) {
-                setMod(false);
-                console.log(mod);
-              } else {
-                setMod(true);
-                console.log(mod);
-              }
-            }}
-          >
-            <h1>Minimize Model Background</h1>
-          </div>
-          <div
-            className=" cursor-pointer flex justify-center items-center 
-          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-            onClick={() => {
-              if (min === true) {
-                setMin(false);
-                console.log(min);
-              } else {
-                setMin(true);
-                console.log(min);
-              }
-            }}
-          >
-            <h1>Camera Controls</h1>
-          </div> */}
-
+        
           {!min && (
             <div className="flex flex-col mt-3">
               <div className="w-max h-max bg-gray-200 z-20 mx-2 rounded-md opacity-75 px-3 pb-4">
