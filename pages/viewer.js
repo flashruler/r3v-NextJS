@@ -131,7 +131,7 @@ export default function Viewer(props) {
                       setModmenu(false);
                     }}
                   >
-                    <h1>gompho mandible</h1>
+                    <h1>Gomphotherium Cranium</h1>
                   </div>
                   <div
                     className=" mb-2 cursor-pointer flex justify-center items-center 
@@ -141,7 +141,7 @@ export default function Viewer(props) {
                       setModmenu(false);
                     }}
                   >
-                    <h1>tapir</h1>
+                    <h1>Tapir</h1>
                   </div>
                   <div
                     className=" mb-2 cursor-pointer flex justify-center items-center 
@@ -151,8 +151,28 @@ export default function Viewer(props) {
                       setModmenu(false);
                     }}
                   >
-                    <h1>gomphothere 1</h1>
+                    <h1>Gomphothere 1</h1>
                   </div>
+                  <div
+                    className=" mb-2 cursor-pointer flex justify-center items-center 
+          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
+                    onClick={() => {
+                      setModel("Puma");
+                      setModmenu(false);
+                    }}
+                  >
+                    <h1>Puma</h1>
+                  </div>
+                  {/* <div
+                    className=" mb-2 cursor-pointer flex justify-center items-center 
+          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
+                    onClick={() => {
+                      setModel("Puma");
+                      setModmenu(false);
+                    }}
+                  >
+                    <h1>Gomphothere 1</h1>
+                  </div> */}
                   <div
                     className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
@@ -161,7 +181,8 @@ export default function Viewer(props) {
                       setModmenu(false);
                     }}
                   >
-                    <h1>gomphothere 2</h1>
+                    
+                    <h1>Gomphothere 2</h1>
                   </div>
                 </div>
               )}
@@ -198,35 +219,35 @@ export default function Viewer(props) {
   );
 }
 
-async function getGompNodes() {
-  const modelUrls = ["https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_1.GLTF",
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_2.GLTF",
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_3.GLTF",
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_4.GLTF",
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_5.GLTF",
-    "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_6.GLTF"]
+// async function getGompNodes() {
+//   const modelUrls = ["https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_1.GLTF",
+//     "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_2.GLTF",
+//     "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_3.GLTF",
+//     "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_4.GLTF",
+//     "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_5.GLTF",
+//     "https://hn3dmodels.s3.us-west-1.amazonaws.com/my/uploads/path/HN3DGOMP1_6.GLTF"]
 
-  let nodes = []
+//   let nodes = []
 
-  modelUrls.map(x => {
-    const { nodes } = useGLTF(x)
-    nodes.push(nodes)
-  })
+//   modelUrls.map(x => {
+//     const { nodes } = useGLTF(x)
+//     nodes.push(nodes)
+//   })
 
-  return nodes
-}
+//   return nodes
+// }
 
-export async function getStaticProps() {
-  const data = await fetch("https://hn3d-cms.herokuapp.com/api/models", {
-    method: "GET",
-    Authorization: process.env.STRAPI_API_KEY,
-  });
-  const modelInfo = await data.json();
-  console.log(modelInfo);
-  return {
-    props: {
-      modelInfo,
-      grompNodes: getGompNodes(),
-    },
-  };
-}
+// export async function getStaticProps() {
+//   const data = await fetch("https://hn3d-cms.herokuapp.com/api/models", {
+//     method: "GET",
+//     Authorization: process.env.STRAPI_API_KEY,
+//   });
+//   const modelInfo = await data.json();
+//   console.log(modelInfo);
+//   return {
+//     props: {
+//       modelInfo,
+//       grompNodes: getGompNodes(),
+//     },
+//   };
+// }

@@ -25,7 +25,7 @@ export default function ViewerMenu(props) {
             className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
             onClick={() => {
-              setModel("peccary");
+              setModel("Peccary");
             }}
           >
             <h1>Peccary</h1>
@@ -34,7 +34,7 @@ export default function ViewerMenu(props) {
             className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
             onClick={() => {
-              setModel("mando");
+              setModel("Mando");
             }}
           >
             <h1>gompho mandible</h1>
@@ -43,10 +43,29 @@ export default function ViewerMenu(props) {
             className=" mb-2 cursor-pointer flex justify-center items-center 
           p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
             onClick={() => {
-              setModel("tapir");
+              setModel("Tapir");
             }}
           >
             <h1>tapir</h1>
+          </div>
+          <div
+            className=" mb-2 cursor-pointer flex justify-center items-center 
+          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
+            onClick={() => {
+              setModel("Gomp1");
+            }}
+          >
+               <h1>Puma</h1>
+          </div>
+          <div
+            className=" mb-2 cursor-pointer flex justify-center items-center 
+          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
+            onClick={() => {
+              setModel("Puma");
+            }}
+          >
+        
+            <h1>gomphothere 1</h1>
           </div>
         </div>
       )}
