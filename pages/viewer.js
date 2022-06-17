@@ -152,6 +152,16 @@ export default function Viewer(props) {
                   >
                     <h1>gomphothere 2</h1>
                   </div>
+                  <div
+                    className=" mb-2 cursor-pointer flex justify-center items-center 
+          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
+                    onClick={() => {
+                      setModel("Puma");
+                      setModmenu(false);
+                    }}
+                  >
+                    <h1>Puma</h1>
+                  </div>
                 </div>
               )}
             </div>

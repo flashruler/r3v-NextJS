@@ -15,6 +15,7 @@ import Mando from "../models/peccary/mando";
 import Tapir from "../models/peccary/tapir";
 import Gomp1 from "../models/peccary/gomp1";
 import Gomp2 from "../models/peccary/gomp2";
+import Puma from "../models/peccary/puma";
 function Loader() {
   const { progress } = useProgress();
   return <Html center> {Math.round(progress)}% loaded</Html>;
@@ -125,6 +126,7 @@ export default function GenerateCanvas(props) {
             {model === "Tapir" && <Tapir />}
             {model === "Gomp1" && <Gomp1 />}
             {model === "Gomp2" && <Gomp2 />}
+            {model === "Puma" && <Puma />}
 
             <>
               <Controls home={home} />
