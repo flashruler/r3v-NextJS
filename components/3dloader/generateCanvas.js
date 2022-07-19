@@ -14,9 +14,11 @@ import Peccary from "../models/peccary/testmodel";
 import Mando from "../models/peccary/mando";
 import Tapir from "../models/peccary/tapir";
 import Gomp1 from "../models/peccary/gomp1";
+import Deci from "../models/peccary/gomp1deci";
 import Gomp2 from "../models/peccary/gomp2";
 import Puma from "../models/peccary/puma";
 import GompArms from "../models/peccary/arms";
+import Sloth from "../models/peccary/sloth";
 function Loader() {
   const { progress } = useProgress();
   return <Html center> {Math.round(progress)}% loaded</Html>;
@@ -126,9 +128,11 @@ export default function GenerateCanvas(props) {
             {model === "Peccary" && <Peccary test={minimize} />}
             {model === "Tapir" && <Tapir />}
             {model === "Gomp1" && <Gomp1 />}
+            {model === "Deci" && <Deci />}
             {model === "Gomp2" && <Gomp2 />}
             {model === "Puma" && <Puma />}
             {model === "GompArms" && <GompArms />}
+            {model === "Sloth" && <Sloth />}
 
             <>
               <Controls home={home} />

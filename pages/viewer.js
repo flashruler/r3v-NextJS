@@ -141,6 +141,16 @@ export default function Viewer(props) {
                     }}
                   >
                     <h1>Gomphothere 1</h1>
+                    </div>
+                  <div
+                    className=" mb-2 cursor-pointer flex justify-center items-center 
+          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
+                    onClick={() => {
+                      setModel("Deci");
+                      setModmenu(false);
+                    }}
+                  >
+                    <h1>Gomphothere Deci</h1>
                   </div>
                   <div
                     className=" mb-2 cursor-pointer flex justify-center items-center 
@@ -171,6 +181,16 @@ export default function Viewer(props) {
                     }}
                   >
                     <h1>Puma</h1>
+                  </div>
+                  <div
+                    className=" mb-2 cursor-pointer flex justify-center items-center 
+          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
+                    onClick={() => {
+                      setModel("Sloth");
+                      setModmenu(false);
+                    }}
+                  >
+                    <h1>Sloth</h1>
                   </div>
                 </div>
               )}
@@ -214,15 +234,15 @@ export default function Viewer(props) {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
+                className="h-10 w-10"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                stroke-width="2"
+                strokeWidth="2"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                 />
               </svg>
@@ -239,7 +259,7 @@ export default function Viewer(props) {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
+                className="h-10 w-10"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

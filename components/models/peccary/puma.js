@@ -9,13 +9,15 @@ function LoadSect1() {
     <mesh
       castShadow
       receiveShadow
-      position={[-10, 0, 10]}
+      position={[-10, 2, 10]}
+      scale={[1.2, 1.2, 1.2]}
       rotation={[90, 0, 0]}
       geometry={nodes.mesh_0.geometry}
       material={nodes.mesh_0.material}
     />
   );
 }
+
 
 export default function Puma(props) {
   const group = useRef();
