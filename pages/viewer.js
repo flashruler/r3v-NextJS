@@ -141,16 +141,6 @@ export default function Viewer(props) {
                     }}
                   >
                     <h1>Gomphothere 1</h1>
-                    </div>
-                  <div
-                    className=" mb-2 cursor-pointer flex justify-center items-center 
-          p-3 w-auto z-30 h-12 mx-2 rounded-lg bg-gray-200 opacity-75"
-                    onClick={() => {
-                      setModel("Deci");
-                      setModmenu(false);
-                    }}
-                  >
-                    <h1>Gomphothere Deci</h1>
                   </div>
                   <div
                     className=" mb-2 cursor-pointer flex justify-center items-center 

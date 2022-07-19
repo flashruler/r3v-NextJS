@@ -9,7 +9,7 @@ function LoadSect1() {
     <mesh
       castShadow
       receiveShadow
-      position={[-10, 5, 10]}
+      position={[-10, 2, 10]}
       rotation={[90, 0, 10]}
       scale={[0.75, 0.75, 0.75]}
       geometry={nodes.mesh_0.geometry}
@@ -25,7 +25,7 @@ function LoadSect2() {
   return (    <mesh
     castShadow
     receiveShadow
-    position={[-10, 5, 10]}
+    position={[-10, 2, 10]}
     rotation={[90, 0, 10]}
     scale={[0.75, 0.75, 0.75]}
     geometry={nodes.mesh_0.geometry}
